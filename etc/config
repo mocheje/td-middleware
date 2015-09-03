@@ -1,0 +1,55 @@
+{
+ "logsPath":"logs",
+ "verbose":false,
+ "pingTimeout":500,
+ "systemId": "dockerTestServer",
+ "Core":{
+     "coreId":"dockertest",
+     "redisHost":"localhost",
+     "redisPort":6379,
+     "paths":[
+        {"core":"etc/coreSwarms"      ,"enabled":true},
+	    {"core":"etc/xSwarms"         ,"enabled":false},
+        {"core":"etc/testSwarms"      ,"enabled":true},
+        {"folder":"admin/swarms"      ,"enabled":true},
+        {"folder":"swarms"            ,"enabled":true},
+        {"folder":"tdnodes/swarms"           ,"enabled":true}
+     ]
+  },
+ "Logger":{},
+ "Launcher":{
+            "stepsDelay":300,
+            "pingTimeout":2000,
+            "responseTimeout":500,
+            "serverAlias":"development",
+            "watch":[
+                        {"core":"etc/adapters/Core.js",                              "enabled":true, "step":1},
+                        {"core":"etc/relay/RedisRelay.js",                           "enabled":true, "args":["-n", "RESEARCH", "-r", "localhost", "-p", "6379", "-u", "localhost:5000"], "step":1},
+                        {"core":"etc/adapters/DefaultLogger.js",                     "enabled":true, "step":2},
+                        {"node":"admin/adapters/UsersManager.js",                    "enabled":true  , "step":3},
+                        {"node":"admin/adapters/SwarmMonitor.js",                    "enabled":true  , "step":4},
+                        {"core":"etc/adapters/GenericNode.js",                       "args":["-n" ,"Node1"], "enabled":true  , "step":4},
+                        {"core":"etc/adapters/GenericNode.js",                       "args":["-n" ,"Node2"], "enabled":true  , "step":4},
+                        {"core":"etc/adapters/ClientAdapter.js",                     "enabled":true  , "step":7},
+                        {"core":"etc/adapters/WSServer.js",                          "enabled":true  , "step":7},
+                        {"node":"adapters/demoBroadcast.js",                         "enabled":true  , "step":8},
+                        {"node":"tdnodes/adapters/MicrosoftNAV.js",                  "enabled":true  , "step":9},
+                        {"node":"tdnodes/adapters/TradeDepotCentral.js",            "enabled":true  , "step":9}
+            ]
+   },
+  "ClientAdapter":{
+        "startSwarmThrottler":{
+              "limit":1000,
+              "timeUnit":"minute"
+    },
+    "outletThrottler":{
+              "limit":100,
+              "timeUnit":"minute"
+           }
+  },
+  "WSServer":{
+           "host":"0.0.0.0",
+           "port":"8080"
+  }
+
+}

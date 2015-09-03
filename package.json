@@ -1,0 +1,59 @@
+{
+  "name": "swarmesb",
+  "description": "swarmesb demo package",
+  "version": "2.0.1",
+  "homepage": "https://github.com/salboaie/SwarmESB",
+  "author": {
+    "name": "Alboaie Sinica",
+    "email": "salboaie@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Alboaie Sinica",
+      "email": "salboaie@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/salboaie/asynchron.git"
+  },
+  "bugs": {
+    "email": "salboaie@gmail.com",
+    "url": "https://github.com/salboaie/asynchron/issues"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "main": "./adapters/Core.js",
+  "licenses": [
+    {
+      "type": "GPL",
+      "url": "http://www.gnu.org/licenses/gpl.html"
+    }
+  ],
+  "_id": "swarmesb@2.0.1",
+  "dependencies": {
+    "acl-magic": ">=1.0.10",
+    "apersistence": ">=1.0.24",
+    "commander": ">=2.8.1",
+    "dateformat": ">=1.0.11",
+    "fs": "0.0.2",
+    "httpntlm": "^1.5.2",
+    "moment": ">=2.10.3",
+    "rts": ">=0.0.0",
+    "semantic-firewall": ">=0.5.1",
+    "soap-ntlm": "^0.6.3",
+    "swarmcore": ">=2.2.6",
+    "tmp": ">=0.0.0",
+    "underscore": "^1.8.3"
+  },
+  "optionalDependencies": {},
+  "_engineSupported": true,
+  "_npmVersion": "1.1.12",
+  "_nodeVersion": "v0.6.14",
+  "_defaultsLoaded": true,
+  "dist": {}
+}

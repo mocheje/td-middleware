@@ -1,0 +1,13 @@
+{
+  "active": {
+    "purchaseorder": {
+      "actions": ["Read", "ReadByRecId", "ReadMultiple", "IsUpdated"]
+    }
+  },
+  "NAV" : {
+    "navcentral": {"username": "administrator", "password": "Uor&FQ*-C2z" }
+  },
+  "ELM" : {
+        "jos": {"username": "", "password": ""}
+  }
+}
