@@ -16,7 +16,11 @@ var soap = require("soap-ntlm");
 var fs = require('fs');
 var httpntlm = require('httpntlm');
 
-
+/*
+Will create a soap server but first use default rest to test adapter.
+ */
+var express = require('express');
+var app = express();
 thisAdapter = core.createAdapter("MicrosoftNAV");
 console.log("Microsoft NAV adapter running and listening and waiting for swarms method calls");
 var running = [];
@@ -93,5 +97,25 @@ checkService = function(name){
     console.log("index found and index value is %s", index);
    return index;
 };
+// api connections
+// implement apis as post request and not plain get.
+app.get('/test-adapter', function(req, res){
+    // array to hold sample names
+    var names= ["nav", "local-nav"];
+    var navSystem = req.query.name;
+    //implement authentication using passport js
+    // check if auth match and return response based on result.
+    if(names.indexOf(navSystem) > -1) {
+        res.status(200);
+        res.send({status: 200, client: navSystem});
+    } else {
+        res.status(401);
+        res.send({status: 401});
+    }
 
+});
 //startup
+var port = process.env.NAV_PORT || 3010;
+app.listen(port, function(){
+    console.log("NAV Adapter connected and Listening at port %s", port);
+});
