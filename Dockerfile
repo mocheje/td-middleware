@@ -6,7 +6,7 @@ RUN   yum install -y redis
 COPY . /SwarmESB
 RUN cd /SwarmESB; npm install; npm dedupe
 RUN npm install http-server -g
-EXPOSE  8000 8080
+EXPOSE  8000 8080 3010
 CMD ["/bin/bash", "/SwarmESB/container/start.sh"]
 
 
